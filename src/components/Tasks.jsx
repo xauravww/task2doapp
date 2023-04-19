@@ -1,7 +1,7 @@
 import React from "react"
 import "./styling/Tasks.css"
 import { useState } from "react"
-import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri"
+import { RiArrowDropRightLine, RiArrowDropUpLine } from "react-icons/ri"
 import { RxCross2 } from "react-icons/rx"
 
 const Tasks = () => {
@@ -53,7 +53,7 @@ const Tasks = () => {
       <div className="toggles">
         <div onClick={() => setShowTaskList((prev) => !prev)}>
           ToDo Tasks
-          {showTaskList ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+          {showTaskList ? <RiArrowDropUpLine /> : <RiArrowDropRightLine />}
         </div>
         {showTaskList && (
           <div className="tasks">
@@ -79,7 +79,7 @@ const Tasks = () => {
         )}
         <div onClick={() => setShowCompletedList((prev) => !prev)}>
           Completed Tasks
-          {showCompletedList ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+          {showCompletedList ? <RiArrowDropUpLine /> : <RiArrowDropRightLine />}
         </div>
         {showCompletedList && (
           <div className="tasks">

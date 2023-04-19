@@ -16,12 +16,14 @@ const Timer = () => {
   useEffect(() => {
     let intervalId
     if (!isPaused) {
-      intervalId = setInterval(() => {
+      intervalId = window.setInterval(() => {
         setMilliseconds((prev) => prev + 10)
       }, 10)
     }
 
-    return () => clearInterval(intervalId)
+    return () => {
+      window.clearInterval(intervalId)
+    }
   }, [isPaused])
 
   useEffect(() => {
@@ -53,13 +55,13 @@ const Timer = () => {
   )}:${formatTime(Math.floor(milliseconds / 10))}`
 
   const handlePauseClick = () => {
-    setIsPaused(!isPaused)
+    setIsPaused((prev) => !prev)
   }
 
   return (
     <>
       <div className="timer">{formattedTime}</div>
-
+      <div className="circle"></div>
       {!isPaused && (
         <button className="pauseButton" onClick={handlePauseClick}>
           Pause
@@ -70,7 +72,10 @@ const Timer = () => {
           <button className="continueButton" onClick={handlePauseClick}>
             Continue
           </button>
-          <button className="exitButton" onClick={() => window.close()}>
+          <button
+            className="exitButton"
+            onClick={() => window.location.reload()}
+          >
             Exit
           </button>
         </>
