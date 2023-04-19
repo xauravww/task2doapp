@@ -50,50 +50,52 @@ const Tasks = () => {
     <div className="container">
       <input className="inputClass" type="text" />
       <button onClick={addTask}> Add</button>
-      <div onClick={() => setShowTaskList((prev) => !prev)}>
-        Task List
-        {showTaskList ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
-      </div>
-      {showTaskList && (
-        <div className="tasks">
-          <ul>
-            {tasks.map(
-              (task, index) =>
-                !completedTasks.has(index) && (
-                  <li className="list" key={index}>
-                    <input
-                      type="checkbox"
-                      checked={completedTasks.has(index)}
-                      onChange={() => toggleCompleted(index)}
-                    />
-                    <div>{task}</div>
-                    <div className="cross" onClick={() => deleteTask(index)}>
-                      <RxCross2 />
-                    </div>
-                  </li>
-                )
-            )}
-          </ul>
+      <div className="toggles">
+        <div onClick={() => setShowTaskList((prev) => !prev)}>
+          ToDo Tasks
+          {showTaskList ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
         </div>
-      )}
-      <div onClick={() => setShowCompletedList((prev) => !prev)}>
-        Completed Tasks
-        {showCompletedList ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
-      </div>
-      {showCompletedList && (
-        <div className="tasks">
-          <ul>
-            {completedTasksList.map((task, index) => (
-              <li className="completed list" key={task}>
-                <div>{task}</div>
-                <div className="cross" onClick={() => deleteTask(index)}>
-                  <RxCross2 />
-                </div>
-              </li>
-            ))}
-          </ul>
+        {showTaskList && (
+          <div className="tasks">
+            <ul>
+              {tasks.map(
+                (task, index) =>
+                  !completedTasks.has(index) && (
+                    <li className="list" key={index}>
+                      <input
+                        type="checkbox"
+                        checked={completedTasks.has(index)}
+                        onChange={() => toggleCompleted(index)}
+                      />
+                      <div>{task}</div>
+                      <div className="cross" onClick={() => deleteTask(index)}>
+                        <RxCross2 />
+                      </div>
+                    </li>
+                  )
+              )}
+            </ul>
+          </div>
+        )}
+        <div onClick={() => setShowCompletedList((prev) => !prev)}>
+          Completed Tasks
+          {showCompletedList ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
         </div>
-      )}
+        {showCompletedList && (
+          <div className="tasks">
+            <ul>
+              {completedTasksList.map((task, index) => (
+                <li className="completed list" key={task}>
+                  <div>{task}</div>
+                  <div className="cross" onClick={() => deleteTask(index)}>
+                    <RxCross2 />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
