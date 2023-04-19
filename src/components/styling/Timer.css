@@ -1,0 +1,52 @@
+.timer {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+button {
+  border-radius: 100000px;
+  width: 8rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.8rem;
+}
+
+.pauseButton {
+  border: 2px solid #2c3e50;
+  background-color: #ffffff;
+  color: #2c3e50;
+  transition: all 0.2s ease-in-out;
+}
+
+.pauseButton:hover {
+  background-color: #2c3e50;
+  color: #ffffff;
+}
+
+.continueButton {
+  background-color: #27ae60;
+  color: #ffffff;
+  border: none;
+  margin: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.continueButton:hover {
+  background-color: #2ecc71;
+}
+
+.exitButton {
+  background-color: #f1c40f;
+  color: #ffffff;
+  border: none;
+  margin: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.exitButton:hover {
+  background-color: #f39c12;
+}
